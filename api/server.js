@@ -5,7 +5,7 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import cors from 'cors';
 import passport from 'passport';
-import expressValidator from 'express-validator';
+// import expressValidator from 'express-validator';
 import path from 'path'
 import router from './router';
 import config from './config/config';
@@ -18,7 +18,7 @@ app.use(cors());
 app.use(bodyParser.json({ type: '*/json', limit: '10mb' }));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true, parameterLimit: 1000000 }));
 app.use(passport.initialize());
-app.use(expressValidator());
+// app.use(expressValidator());
 console.log(path.resolve(__dirname, './uploads'));
 app.use('/uploads', express.static(path.resolve(__dirname, './uploads')));
 router(app);

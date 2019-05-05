@@ -1,7 +1,7 @@
-const passport = require('passport');
-const multer = require('multer');
+import passport from 'passport';
+import multer from 'multer';
 // const auth = require('./controllers/authorization');
-// const caseController = require('./controllers/case/case');
+import tick from './controllers/tick';
 // const children = require('./controllers/case/children');
 // const mou = require('./controllers/case/mou');
 // const fS = require('./controllers/case/financialStatement');
@@ -31,6 +31,7 @@ module.exports = function (app) {
   app.get('/', requireAuth, (req, res) => {
     res.send({ message: 'Super secret code is ABC123' });
   });
-  app.post('/newtick', caseController.newCase);
+  app.post('/newtick', tick.create);
+  app.get('/ticks', tick.index);
 
 };
